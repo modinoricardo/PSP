@@ -1,0 +1,41 @@
+
+ul {
+
+    position: absolute;
+    top: 100px;        
+    list-style-type: none;    
+    width:800px;    
+    background-color: #333;
+    font-family: arial;
+    padding: 0;
+}
+
+li {
+    float: left;    
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right:none;
+    border-left: 1px solid #bbb;
+    float:right;
+}
+
+li a {
+    display: block;
+    width: 100px;
+    color: white;
+    text-align: center;
+    padding: 14px 0px;
+    text-decoration: none;
+}
+
+li a:hover:not(.activo){
+    background-color: #6d6b75;
+    color: white;
+}
+
+li a.activo{
+    background-color: #3300ff;
+    color: white;
+}
