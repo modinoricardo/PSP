@@ -1,0 +1,24 @@
+# Ignorar archivos y carpetas de Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+
+# Directorios de compilación
+bin/
+target/
+
+# Archivos de dependencias
+.mvn/
+.gradle/
+*.jar
+*.war
+*.ear
+
+# Archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos generados por el compilador
+*.class
+
