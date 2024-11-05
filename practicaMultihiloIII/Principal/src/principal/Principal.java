@@ -26,9 +26,9 @@ public class Principal extends Thread{
 			empaquetador2.interrupt();
 			empaquetador3.interrupt();
 			
-			empaquetador1.join();
-			empaquetador2.join();
-			empaquetador3.join();
+//			empaquetador1.join();
+//			empaquetador2.join();
+//			empaquetador3.join();
 			
 			System.out.print("Quedan en la cinta "); //nunca llega aqui
 			lista.imprimirLista();
