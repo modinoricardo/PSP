@@ -21,5 +21,8 @@ public class Principal {
 		miExecutor.submit(barca2);
 		miExecutor.submit(barca3);
 		
+		miExecutor.shutdown();
+		
+		
 	}
 }
