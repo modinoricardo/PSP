@@ -12,13 +12,13 @@ public class Barca extends Thread {
 		this.isla = isla;
 		this.capacidad = (int) (Math.random() * (maxCapacidad - minCapacidad + 1)) + minCapacidad;
 	}
-	
+
 	public void imprimeTotalSalvaciones() {
-		System.out.println("La barca "+this.getName()+" salvo a "+naufragosSalvados+" naufragos");
+		System.out.println("La barca " + this.getName() + " salvo a " + naufragosSalvados + " naufragos");
 	}
-	
+
 	public void imprimeTotalTiempoTardado() {
-		System.out.println("La barca "+this.getName()+" tardo un total de "+tiempoTardado+" segundos");
+		System.out.println("La barca " + this.getName() + " tardo un total de " + tiempoTardado + " segundos");
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class Barca extends Thread {
 		System.out.println("La barca actual es " + this.getName() + " y tiene " + capacidad + " plazas");
 		while (!isla.estaVacia()) {
 
-			naufragosSalvados =  isla.rescate(capacidad, this.getName());
+			naufragosSalvados += isla.rescate(capacidad, this.getName());
 
 			try {
 				sleep(3000);
@@ -37,7 +37,11 @@ public class Barca extends Thread {
 			}
 
 		}
-		System.out.println("Barco "+this.getName()+" ha terminado");
+		System.out.println("Barco " + this.getName() + " ha terminado");
+
+		imprimeTotalSalvaciones();
+		imprimeTotalTiempoTardado();
+
 	}
 
 }

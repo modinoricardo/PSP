@@ -11,19 +11,18 @@ public class Isla {
 		this.totalNaufragos = (int) (Math.random() * 201) + 800;
 		this.miSemaforo = miSemaforo;
 	}
-	
+
 	public int getTotalNaufragos() {
 		return totalNaufragos;
 	}
 
 	public int rescate(int numRescate, String nombre) {
-		
 		int numeroRescatados = 0;
-		
+
 		try {
 			miSemaforo.acquire();
 
-			 numeroRescatados = naufragosSalvados(numRescate, nombre);
+			numeroRescatados = rescatarNaufragos(numRescate, nombre);
 
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -33,31 +32,26 @@ public class Isla {
 		return numeroRescatados;
 	}
 
-	private synchronized int naufragosSalvados(int naufragosSalvados, String nombre) {
-		
-		int totalNaufragosSalvados = 0;
-		
-		if (totalNaufragos > 0) {
+	private synchronized int rescatarNaufragos(int rescate, String nombre) {
 
-			if(naufragosSalvados>totalNaufragos) {
-				
-				System.out.println("La balsa actual es "+nombre+" y rescatamos a "+totalNaufragos);
-				totalNaufragosSalvados = totalNaufragos;
+		int rescatados = 0;
+
+		if (totalNaufragos > 0) {
+			if (rescate > totalNaufragos) {
+				rescatados = totalNaufragos;
 				totalNaufragos = 0;
-						
-			}else {
-				
-				totalNaufragos -= naufragosSalvados;
-				System.out.println("La balsa actual es "+nombre+" y rescatamos a "+naufragosSalvados);
-				totalNaufragosSalvados = naufragosSalvados;
-				
-			}				
+			} else {
+				totalNaufragos -= rescate;
+				rescatados = rescate;
+
+			}
+			System.out.println("La balsa actual es " + nombre + " y rescatamos a " + rescatados);
+			System.out.println("Quedan " + totalNaufragos + " náufragos");
 		}
-		System.out.println("Quedan "+totalNaufragos+" náufragos");
-		return totalNaufragosSalvados;
+		return rescatados;
 
 	}
-	
+
 	public boolean estaVacia() {
 		return totalNaufragos == 0;
 	}
