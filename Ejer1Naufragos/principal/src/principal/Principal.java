@@ -11,6 +11,8 @@ public class Principal {
 		
 		Isla isla = new Isla(miSemaforo);
 		
+		System.out.println("La isla empieza con "+isla.getTotalNaufragos()+" naufragos");
+		
 		ExecutorService miExecutor = Executors.newFixedThreadPool(4);
 		
 		Barca barca1 = new Barca(isla,40,20);
@@ -22,7 +24,6 @@ public class Principal {
 		miExecutor.submit(barca3);
 		
 		miExecutor.shutdown();
-		
-		
+				
 	}
 }

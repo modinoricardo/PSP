@@ -29,7 +29,7 @@ public class Barca extends Thread {
 			naufragosSalvados += isla.rescate(capacidad, this.getName());
 
 			try {
-				sleep(3000);
+				sleep(1);
 				tiempoTardado += 3000;
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

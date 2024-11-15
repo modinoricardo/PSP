@@ -21,7 +21,7 @@ public class Isla {
 
 		try {
 			miSemaforo.acquire();
-
+			Thread.sleep(3000);
 			numeroRescatados = rescatarNaufragos(numRescate, nombre);
 
 		} catch (InterruptedException e) {
@@ -33,7 +33,6 @@ public class Isla {
 	}
 
 	private synchronized int rescatarNaufragos(int rescate, String nombre) {
-
 		int rescatados = 0;
 
 		if (totalNaufragos > 0) {
