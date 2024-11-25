@@ -1,0 +1,10 @@
+package principal;
+
+import java.net.ServerSocket;
+
+public class Servidor {
+	
+	int numeroPuerto = 12;
+	ServerSocket servidor = new ServerSocket();
+	
+}

@@ -1,0 +1,13 @@
+package principal;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+
+public class Servidor {
+	public static void main(String[] args) throws IOException {
+		
+		int numeroPuerto = 12;
+		ServerSocket servidor = new ServerSocket(numeroPuerto);
+		
+	}
+}
