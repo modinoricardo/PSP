@@ -1,0 +1,21 @@
+package principal;
+
+public class Barca extends Thread {
+
+	private Isla isla;
+	private int capacidad;
+
+	public Barca(Isla isla,int maxCapacidad, int minCapacidad) {
+		
+		this.isla = isla;
+		this.capacidad = (int)(Math.random()*(maxCapacidad-minCapacidad+1))+minCapacidad;
+	}
+
+	@Override
+	public void run() {
+		while(isla.hayGente) {
+			
+		}
+	}
+
+}

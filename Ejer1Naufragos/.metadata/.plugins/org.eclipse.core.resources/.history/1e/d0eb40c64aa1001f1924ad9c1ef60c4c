@@ -1,0 +1,32 @@
+package principal;
+
+public class Barca extends Thread {
+
+	private Isla isla;
+	private int capacidad;
+	private int naufragosSalvados = 0;
+	private int tiempoTardado = 0;
+
+	public Barca(Isla isla,int maxCapacidad, int minCapacidad) {
+		
+		this.isla = isla;
+		this.capacidad = (int)(Math.random()*(maxCapacidad-minCapacidad+1))+minCapacidad;
+	}
+
+	@Override
+	public void run() {
+		while(!isla.estaVacia()) {
+			
+			
+			
+			try {
+				sleep(3000);
+				tiempoTardado +=
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

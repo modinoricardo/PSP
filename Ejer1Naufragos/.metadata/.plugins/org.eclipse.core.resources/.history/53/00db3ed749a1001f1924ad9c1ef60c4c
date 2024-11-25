@@ -1,0 +1,20 @@
+package principal;
+
+public class Barca extends Thread {
+
+	private Isla isla;
+	private int capacidad;
+
+	public Barca(Isla isla,int maxCapacidad, int minCapacidad) {
+		
+		this.isla = isla;
+		this.capacidad = (int)(Math.random()+);
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+
+}

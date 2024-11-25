@@ -1,0 +1,40 @@
+package principal;
+
+import java.util.concurrent.Semaphore;
+
+public class Isla {
+
+	private int totalNaufragos;
+	private Semaphore miSemaforo;
+
+	public Isla(Semaphore miSemaforo) {
+		this.totalNaufragos = (int) (Math.random() * 201) + 800;
+		this.miSemaforo = miSemaforo;
+	}
+
+	public void rescate(int numRescate) {
+
+		try {
+			miSemaforo.acquire();
+
+			if (totalNaufragos > 0) {
+
+				if(numRescate>totalNaufragos) {
+					totalNaufragos = 0;
+				}else {
+					totalNaufragos -= numRescate;
+				}				
+			}
+
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		miSemaforo.release();
+	}
+
+	public boolean estaVacia() {
+		
+	}
+
+}
