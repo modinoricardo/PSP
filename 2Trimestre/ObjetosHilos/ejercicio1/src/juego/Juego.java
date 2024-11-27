@@ -1,10 +1,13 @@
-package servidor;
+package juego;
 
 import java.io.Serializable;
 
 public class Juego implements Serializable{
-	private static final long serialVersionUID = 1L;	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5670356584956071216L;
 	private boolean esPar;
 	private int numJugado;
 	

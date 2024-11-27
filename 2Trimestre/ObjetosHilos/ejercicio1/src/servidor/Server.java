@@ -6,6 +6,8 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import juego.Juego;
+
 public class Server {
 
 	private static int partidasGanadas = 0;
@@ -23,12 +25,8 @@ public class Server {
 				ObjectOutputStream out = new ObjectOutputStream(puenteAlCliente.getOutputStream());
 				ObjectInputStream in = new ObjectInputStream(puenteAlCliente.getInputStream())) {
 
-				out.flush();
 
-				int numeroJugado = (int) (Math.random() * 100 + 1);// 1 al 100
-				// int numeroJugado = (int) (Math.random() * 101);//0 al 100
-				// int numeroJugado = (int) (Math.random() * 101 + 100);//100 al 200
-				// int numeroJugado = 100 + (int) (Math.random() * (200 - 100 + 1));//100 al 200
+				int numeroJugado = (int) (Math.random() * 100 + 1);
 
 				Juego jugadaRecibida = (Juego) in.readObject();
 

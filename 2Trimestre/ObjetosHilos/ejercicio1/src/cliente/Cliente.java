@@ -7,6 +7,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
+import juego.Juego;
+
 public class Cliente {
 	
 	private static int partidasGanadas = 0;
@@ -44,7 +46,7 @@ public class Cliente {
 				
 				Juego jugadaEnviada = new Juego(esPar, numJugado);
 				out.writeObject(jugadaEnviada);
-				out.flush();
+				//out.flush();
 				
 				Juego jugadaRecibida = (Juego) in.readObject();
 				int resultado = jugadaRecibida.getNumJugado() + numJugado;
