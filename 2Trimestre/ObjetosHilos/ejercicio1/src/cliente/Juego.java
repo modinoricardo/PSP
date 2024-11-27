@@ -6,43 +6,29 @@ public class Juego implements Serializable{
 	private static final long serialVersionUID = 1L;	
 	
 	private boolean esPar;
-	private int puntosCliente = 0;
-	private int puntosServidor = 0;
+	private int numJugado;
 	
-	public Juego(boolean esPar) {
+	public Juego(boolean esPar, int numJugado) {
 		super();
 		this.esPar = esPar;	
+		this.numJugado = numJugado;
+	}
+
+	public boolean isEsPar() {
+		return esPar;
+	}
+
+	public void setEsPar(boolean esPar) {
+		this.esPar = esPar;
+	}
+
+	public int getNumJugado() {
+		return numJugado;
+	}
+
+	public void setNumJugado(int numJugado) {
+		this.numJugado = numJugado;
 	}
 	
-	public void jugar(int miNum, int suNum) {
-		int resultado = miNum + suNum;
-		
-		System.out.println("El juega: "+suNum);
-		String mensaje = mensaje(resultado);
-		
-		System.out.println(mensaje);
-		
-	}
-	
-	private String mensaje(int resultado){
-		if(esPar) {
-			if(resultado%2==0) {
-				puntosCliente++;
-				return "He ganado. Vamos Cliente: "+puntosCliente+" Servidor: "+puntosServidor;
-			}else {
-				puntosServidor++;
-				return "He perdido. Vamos Cliente: "+puntosCliente+" Servidor: "+puntosServidor;
-			}
-		}else {
-			if(resultado%2!=0) {
-				puntosCliente++;
-				return "He ganado. Vamos Cliente: "+puntosCliente+" Servidor: "+puntosServidor;
-			}else {
-				puntosServidor++;
-				return "He perdido. Vamos Cliente: "+puntosCliente+" Servidor: "+puntosServidor;
-			}
-		}
-			
-	}
 	
 }
