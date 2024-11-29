@@ -1,4 +1,4 @@
-package cliente;
+package clientes;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import juego.Juego;
 
-public class Cliente {
+public class Cliente2 {
 	
 	private static int partidasGanadas = 0;
 	private static int partidasPerdidas = 0;
@@ -23,7 +23,7 @@ public class Cliente {
 		boolean error = true;
 		boolean esPar = false;
 		
-		while(partidasGanadas<3 || partidasPerdidas<3) {
+		while(partidasGanadas<3 && partidasPerdidas<3) {
 			do {
 				System.out.println("¿Quieres Jugar PARES o NONES?");
 				String paresNones = sc.nextLine();
@@ -50,6 +50,8 @@ public class Cliente {
 				
 				Juego jugadaRecibida = (Juego) in.readObject();
 				int resultado = jugadaRecibida.getNumJugado() + numJugado;
+				
+				System.out.println("El juega el: "+jugadaRecibida.getNumJugado());
 				
 				if(esPar) {
 					if(resultado%2==0) {
