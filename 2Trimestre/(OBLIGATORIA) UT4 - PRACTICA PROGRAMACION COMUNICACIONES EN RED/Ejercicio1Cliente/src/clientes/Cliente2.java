@@ -15,7 +15,7 @@ public class Cliente2 {
 		int jugadaInt = 0;
 		boolean juegoTerminado;
 
-		final String SERVER_IP = "192.168.1.128";
+		final String SERVER_IP = "127.0.0.1";
 		final int SERVER_PORT = 5000;
 				
 		try (Socket sk = new Socket(SERVER_IP, SERVER_PORT);
@@ -49,10 +49,10 @@ public class Cliente2 {
 				oOS.writeObject(new Jugada(jugadaInt));
 				
 				System.out.println(in.readBoolean() ? "Ronda ganada" : "Ronda no ganada");
-				System.out.println(in.readBoolean() ? "HEMOS GANADO EL JUEGO" : "HEMOS PERDIDO EL JUEGO");
-
 				juegoTerminado = in.readBoolean();
 			} while (!juegoTerminado);
+			
+			System.out.println(in.readBoolean() ? "HEMOS GANADO EL JUEGO" : "HEMOS PERDIDO EL JUEGO");
 			
 			System.out.println("El juego ha terminado. Gracias por Jugar");
 			sc.close();

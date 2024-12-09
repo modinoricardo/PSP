@@ -19,15 +19,14 @@ public class Servidor {
 		try (ServerSocket servidor = new ServerSocket(5000);
 				Socket cliente1 = servidor.accept();
 				Socket cliente2 = servidor.accept()) {
-			
+
 			ObjectInputStream oISC1 = new ObjectInputStream(cliente1.getInputStream());
 			ObjectInputStream oISC2 = new ObjectInputStream(cliente2.getInputStream());
-			
+
 			DataOutputStream dOSC1 = new DataOutputStream(cliente1.getOutputStream());
 			DataOutputStream dOSC2 = new DataOutputStream(cliente2.getOutputStream());
-			
-			while (true) {
 
+			while (!partidaTerminada) {
 
 				Jugada jugadaCliente1 = (Jugada) oISC1.readObject();
 				Jugada jugadaCliente2 = (Jugada) oISC2.readObject();
@@ -40,10 +39,10 @@ public class Servidor {
 				switch (resultado) {
 				case 0:
 					System.out.println("Es un empate");
-					
+
 					dOSC1.writeBoolean(false);
 					dOSC2.writeBoolean(false);
-					
+
 					break;
 				case 1:
 					System.out.println("Gano el jugador 1");
@@ -67,25 +66,26 @@ public class Servidor {
 					break;
 				}
 
-				System.out.println("Cliente-1: "+victoriasCliente1+" Cliente-2: "+victoriasCliente2);
-				
-				if(victoriasCliente1>=3 || victoriasCliente2>=3) {
+				System.out.println("Cliente-1: " + victoriasCliente1 + " Cliente-2: " + victoriasCliente2);
+
+				if (victoriasCliente1 >= 3 || victoriasCliente2 >= 3)
 					partidaTerminada = true;
-					
-					if(victoriasCliente1>=3) {
+
+				dOSC1.writeBoolean(partidaTerminada);
+				dOSC2.writeBoolean(partidaTerminada);
+
+				if (partidaTerminada) {
+					if (victoriasCliente1 >= 3) {
 						dOSC1.writeBoolean(true);
 						dOSC2.writeBoolean(false);
-					}else {
+					} else {
 						dOSC1.writeBoolean(false);
 						dOSC2.writeBoolean(true);
 					}
-					
 				}
-				
-				dOSC1.writeBoolean(partidaTerminada);
-				dOSC2.writeBoolean(partidaTerminada);
+
 			}
-			
+
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
