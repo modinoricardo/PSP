@@ -12,6 +12,7 @@ public class MiAutorizacion extends Authenticator {
 		this.pass = pass;
 	}
 
+	@SuppressWarnings("exports")
 	@Override
 	public PasswordAuthentication getPasswordAuthentication() {
 		return new PasswordAuthentication(user, pass);
